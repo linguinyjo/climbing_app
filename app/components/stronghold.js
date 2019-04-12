@@ -5,9 +5,10 @@ function RenderSetting(props){
   return (
     <ul>
       {Object.values(props.setting).map((item) => {
+        let date = moment(item[0]['start']).format('"dddd, MMMM Do YYYY')
         return (
           <li key={item[0].title} style={{margin: '20px', listStylePosition: 'inside', listStyleType: 'circle'}}>
-            {item[0]['title'] + ' is being reset on: ' + item[0]['start']}
+            {item[0]['title'] + ' is being reset on: ' + date}
           </li>
         )
         }) 
