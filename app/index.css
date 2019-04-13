@@ -53,4 +53,35 @@ body {
     margin: auto;
     background-color: beige;
     text-align: center;
-  }
+}
+
+/* Stronghold */
+.whiteCircuit {   
+    font-weight: bold;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.blackCircuit {   
+    color: black;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.greenCircuit {   
+    color: green;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.purpleCircuit {   
+    color: purple;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.compCircuit {   
+    font-weight: bold;
+    color: yellow;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.openingTimes {
+    margin: auto;
+    font-style: italic;
+    list-style: none        
+}
+

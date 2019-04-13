@@ -17,9 +17,11 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "google-maps-react": "^2.0.2",
     "moment": "^2.24.0",
     "query-string": "^6.3.0",
     "react": "^16.8.3",
+    "react-css-modules": "^4.7.9",
     "react-dom": "^16.8.3",
     "react-moment": "^0.8.4",
     "react-router-dom": "^4.3.1"

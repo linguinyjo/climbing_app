@@ -21,20 +21,7 @@ export function getEvents (callback) {
         if(event.status == 'cancelled') return;
         if(moment(today).isAfter(event.start.date)) return;
         let circuit = event.summary.split(' ')[0].toLowerCase()
-        
-        
-        // if(len > 0) {
-        //   let lastDate = setting[circuit][len-1]['start']
-        //   if(moment(lastDate).isAfter(event.start.date)){
-        //     setting[circuit].unshift({
-        //       start: event.start.date,
-        //       end: event.end.date,
-        //       title: event.summary,
-        //     })
-        //   }
-        // }
-        
-       
+     
         setting[circuit].push({
           start: event.start.date,
           end: event.end.date,
