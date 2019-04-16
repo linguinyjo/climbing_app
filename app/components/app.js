@@ -1,8 +1,6 @@
 var React = require('react')
 var Centres = require('./centres.js')
 
-
-
 class App extends React.Component {
 
   render() {
@@ -15,7 +13,6 @@ class App extends React.Component {
       )
     }
   }
-
 
 module.exports = App;
 

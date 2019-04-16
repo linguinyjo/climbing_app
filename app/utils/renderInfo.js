@@ -14,7 +14,7 @@ function RenderOpeningTimes(props){
 }
 function RenderAddress(props){
 	return (
-		<div className='address'>{props.address}</div>
+		<a href={props.url} className='address'>{props.address}</a>
 	)
 }	
 class RenderInfo extends React.Component {
@@ -30,7 +30,7 @@ class RenderInfo extends React.Component {
 				<div style= {style1}>Opening Times:</div>
           <RenderOpeningTimes openingTimes={this.props.openingTimes}/>            
           <div style= {style1}>Address</div>
-          <RenderAddress address={this.props.address}/>
+          <RenderAddress address={this.props.address} url={this.props.url}/>
 			</div>
 		)
 	}
