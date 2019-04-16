@@ -1,5 +1,7 @@
 var React = require('react');
 var api = require('../utils/api');
+var RenderMap = require('../utils/renderMap')
+var RenderInfo = require('../utils/renderInfo')
 
 
 function RenderSetting(props){
@@ -37,26 +39,18 @@ function RenderSetting(props){
     </ul> 
   )
 }
-function RenderOpeningTimes(props){
-  return (
-    <ul className='openingTimes'>
-      {props.openingTimes.map((time, index) => {
-        return (
-          <li style={{padding: '5px'}} key={index}>{time}</li>
-        )}
-      )}
-    </ul>
-  )
-}
+
 class Stronghold extends React.Component {
     constructor() {
         super();
         this.state = {
           name: 'Stronghold Climbing Centre',
-          openingTime: ['Monday – Friday 12pm – 10pm', 'Saturday 9am – 7pm', 'Sunday 9am – 9pm'],
+          openingTime: ['Monday – Friday 12pm – 10pm', 'Saturday 9am – 7pm', 'Sunday 9am – 9pm', 'Bank Holidays: 9am – 10pm'
+        ],
           address: '18 Ashley Road Tottenham Hale London N17 9LJ',
           logo: 'https://www.thestrongholduk.com/wp-content/uploads/2017/06/Stronghold-Logo-v2-Copy.jpg',
-          setting: {}
+          setting: {},
+          latlng: {lat: 51.5907537, lng: -0.0639357}
         }
     } 
     componentDidMount(){
@@ -69,7 +63,6 @@ class Stronghold extends React.Component {
     }
     
     render () {
-     var style1= {fontSize: 20, fontWeight: 'bold', marginTop: '50px', marginBottom: '20px'}
       return (
         <div className='boxmodel'> 
            <div> 
@@ -81,15 +74,18 @@ class Stronghold extends React.Component {
           <ul >    
             <li style={ {listStyleType: 'none'} }> 
             <div style= {{fontSize: 20, fontWeight: 'bold'}}>Route Setting Schedule:</div>    
-              <RenderSetting setting={this.state.setting}/>        
+            <RenderSetting setting={this.state.setting}/>        
             </li>
-            <div style= {style1}>Opening Times:</div>
-            <RenderOpeningTimes openingTimes={this.state.openingTime}/>            
-            <div style= {style1}>Address</div>
-            {this.state.address}
-            <div style={{marginTop: '20px'}}>
-                <img src='https://map.viamichelin.com/map/carte?map=viamichelin&z=10&lat=51.50022&lon=-0.1265&width=550&height=382&format=png&version=latest&layer=background&debug_pattern=.*' />
-              </div>      
+            <div>
+              <RenderInfo 
+                openingTimes={this.state.openingTime} 
+                address={this.state.address}
+              />
+            </div>
+            <RenderMap 
+              latlng={this.state.latlng} 
+              name={this.state.name}
+            />      
         </ul>
        </div>
       )

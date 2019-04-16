@@ -1,6 +1,6 @@
 var React = require('react')
-var Castle = require('./castle.js')
-var Stronghold = require('./stronghold.js')
+var Castle = require('../climbingCentres/castle')
+var Stronghold = require('../climbingCentres/stronghold')
 
 //var api = require('../utils/api.js')
 
@@ -53,8 +53,7 @@ class Centres extends React.Component {
             <SelectCentre 
               onSelect={this.updateCentre}
               selectedCentre={this.state.selectedCentre}
-            />
-            
+            />           
             {!this.state.selectedCentre && null}
                  
             {this.state.selectedCentre === 'Castle' && <Castle />}

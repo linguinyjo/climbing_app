@@ -55,6 +55,12 @@ body {
     text-align: center;
 }
 
+#map {
+    height: 400px;
+    width: 500px;
+    margin: 0 auto 0 auto;
+    margin-top: 20px    
+}
 /* Stronghold */
 .whiteCircuit {   
     font-weight: bold;
@@ -82,6 +88,12 @@ body {
 .openingTimes {
     margin: auto;
     font-style: italic;
-    list-style: none        
+    list-style: none;
+    padding-inline-end: 25px        
 }
 
+.address {
+    margin: auto;
+    font-style: italic;
+    
+}

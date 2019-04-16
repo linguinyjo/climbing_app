@@ -1,6 +1,9 @@
 to do 11/04/2019:
-
 -order dates in api.js
 -create castle calendar
+
+
+12/04/2019:
+-fix date format
 -create map integration via google api
 -start thinking about formating
