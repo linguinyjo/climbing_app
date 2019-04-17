@@ -8,7 +8,7 @@ class RenderMap extends React.Component {
       this.renderMap()
     }
     renderMap = () => {
-      loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyD23XfaawfCpqWkrXZanyYmOnRgkUrb8xQ&callback=initMap")
+      loadScript("https://maps.googleapis.com/maps/api/js?key=" + config.map + "&callback=initMap")
       window.initMap = this.initMap
     }
     initMap = () => {

@@ -2,7 +2,7 @@ import request from 'superagent';
 
 var today = moment().format('YYYY-MM-DD'); 
 const CALENDAR_ID = 'kkbo6hvijn9gk8qicm0t14c88o@group.calendar.google.com'
-const API_KEY = 'AIzaSyA09jszrFtOJm7OHBhN2FGHo1ci0T1z5xk'
+const API_KEY = config.calendar
 let url = `https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events?key=${API_KEY}`
 
 export function getEvents (callback) {

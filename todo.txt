@@ -7,3 +7,6 @@ to do 11/04/2019:
 -fix date format
 -create map integration via google api
 -start thinking about formating
+
+16/04/19:
+-look into deleting git history and securing api keys
