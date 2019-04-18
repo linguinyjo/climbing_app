@@ -47,9 +47,9 @@ body {
     margin: 10px;
 }
 .boxmodel {
-    width: 45%;
+    width: 50%;
     border: 2px solid black;
-    padding: 10px;
+    
     margin: auto;
     background-color: beige;
     text-align: center;
@@ -94,6 +94,5 @@ body {
 
 .address {
     margin: auto;
-    font-style: italic;
-    
+    font-style: italic; 
 }

@@ -1,8 +1,10 @@
 var React = require('react')
 var Castle = require('../climbingCentres/castle')
 var Stronghold = require('../climbingCentres/stronghold')
+var Yonder = require('../climbingCentres/yonder')
+var MileEnd = require('../climbingCentres/mile_end')
 
-//var api = require('../utils/api.js')
+
 
 function SelectCentre (props) {
   climbingCentres = [
@@ -54,10 +56,11 @@ class Centres extends React.Component {
               onSelect={this.updateCentre}
               selectedCentre={this.state.selectedCentre}
             />           
-            {!this.state.selectedCentre && null}
-                 
+            {!this.state.selectedCentre && null}      
             {this.state.selectedCentre === 'Castle' && <Castle />}
             {this.state.selectedCentre === 'Stronghold' && <Stronghold />}
+            {this.state.selectedCentre === 'Yonder' && <Yonder />}
+            {this.state.selectedCentre === 'Mile End' && <MileEnd />}
             
 
          </div>
