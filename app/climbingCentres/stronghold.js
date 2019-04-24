@@ -60,9 +60,7 @@ class Stronghold extends React.Component {
     } 
     componentDidMount(){
       api.getEvents(this.state.calendarId, (setting) => {
-        
         for(let array in setting) {
-          console.log(array)
           setting[array].sort((a, b) =>  new Date(a['start']) - new Date(b['start']))  
         }
         this.setState({setting})
@@ -71,7 +69,7 @@ class Stronghold extends React.Component {
     
     render () {
       return (
-        <div className='boxmodel'> 
+        <div className='boxmodel' id='mobile'> 
            <div> 
               <a href={this.state.website}><img  
                 className='centre-logo'
@@ -105,19 +103,4 @@ module.exports = Stronghold;
 
 
 
-// setting = {
-//   white: [
-//     {start: "26/07/2019"}, {start: "21/05/2019"}, {start: "23/06/2019"}, {start: "21/06/2019"}, {start: "05/05/2019"}, {start: "17/05/2019"}, {start: "22/05/2019"}
-//   ],
-//   black: [
-//     {start: "26/07/2019"}, {start: "21/05/2019"}, {start: "23/06/2019"}, {start: "21/06/2019"}, {start: "05/05/2019"}, {start: "17/05/2019"}, {start: "22/05/2019"}
-//   ]
-// }
 
-// for(let array in setting) {
-//   setting[array].sort((a, b) => {
-//     new Date(a) -  new Date(b)
-//   })
-// }
-
-// console.log(setting)

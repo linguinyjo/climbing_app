@@ -7,7 +7,6 @@ export function getEvents (id, callback) {
   const CALENDAR_ID = id + '@group.calendar.google.com'
   const API_KEY = config.calendar
   let url = `https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events?key=${API_KEY}`
-  console.log(url)
   request
   .get(url)
   .end((err, resp) => {

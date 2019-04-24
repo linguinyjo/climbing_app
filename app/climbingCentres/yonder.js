@@ -28,7 +28,7 @@ class Yonder extends React.Component {
 							alt={''}/>
 						</a>
 					</div>
-					<ul >    
+					<ul style={{padding: '0'}}>    
 					<li style={ {listStyleType: 'none'} }> 
 						<div style= {{fontSize: 20, fontWeight: 'bold' }}>Route Setting Schedule:</div>      
 						<div style={{fontStyle: 'italic'}}></div>          

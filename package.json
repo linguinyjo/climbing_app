@@ -25,6 +25,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "google-maps-react": "^2.0.2",
+    "media-queries": "^1.0.5",
     "moment": "^2.24.0",
     "query-string": "^6.3.0",
     "react": "^16.8.3",

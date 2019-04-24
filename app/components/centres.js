@@ -55,14 +55,14 @@ class Centres extends React.Component {
             <SelectCentre 
               onSelect={this.updateCentre}
               selectedCentre={this.state.selectedCentre}
-            />           
-            {!this.state.selectedCentre && null}      
-            {this.state.selectedCentre === 'Castle' && <Castle />}
-            {this.state.selectedCentre === 'Stronghold' && <Stronghold />}
-            {this.state.selectedCentre === 'Yonder' && <Yonder />}
-            {this.state.selectedCentre === 'Mile End' && <MileEnd />}
-            
-
+            />
+            <div>           
+              {!this.state.selectedCentre && null}      
+              {this.state.selectedCentre === 'Castle' && <Castle />}
+              {this.state.selectedCentre === 'Stronghold' && <Stronghold />}
+              {this.state.selectedCentre === 'Yonder' && <Yonder />}
+              {this.state.selectedCentre === 'Mile End' && <MileEnd />}
+            </div>
          </div>
       )
     }

@@ -18,7 +18,7 @@ function RenderSetting(props){
         else {
           let date = moment(item[0]['start']).format("dddd Do of MMMM" )
           return (
-            <div style={{textAlign: 'center', margin: 'auto'  }}>
+            <div style={{textAlign: 'center', margin: 'auto'}}>
             <li key={item[0].title} style={{margin: '20px', listStylePosition: 'inside', listStyleType: 'none'}}>
               {'The ' + item[0]['title'] + ' is being reset on: ' + date}
             </li>
@@ -30,7 +30,7 @@ function RenderSetting(props){
         return (
           <div style={{textAlign: 'center', margin: 'auto'  }}>
           <li key={item[0]} style={{margin: '20px', listStylePosition: 'inside', listStyleType: 'none'}}>
-            {'There is currently no available date for the ' + unknownProblems[0] }
+            {'There is currently no set date for the ' + unknownProblems[0] }
           </li>
           </div>
           )
