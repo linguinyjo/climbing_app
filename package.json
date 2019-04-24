@@ -11,12 +11,13 @@
       [
         "@babel/plugin-proposal-class-properties"
       ]
-  ]
-   
+    ]
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "start": "webpack-dev-server --open"
+    "build": "SET NODE_ENV='production' && webpack",
+    "start": "webpack-dev-server --open",
+    "firebase-init": "firebase login && firebase init",
+    "deploy": "npm run build && firebase deploy"
   },
   "keywords": [],
   "author": "",
@@ -40,6 +41,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
+    "firebase-tools": "^6.6.0",
     "html-webpack-plugin": "^3.2.0",
     "style-loader": "^0.23.1",
     "superagent": "^5.0.2",

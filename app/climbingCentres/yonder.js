@@ -31,7 +31,7 @@ class Yonder extends React.Component {
 					<ul >    
 					<li style={ {listStyleType: 'none'} }> 
 						<div style= {{fontSize: 20, fontWeight: 'bold' }}>Route Setting Schedule:</div>      
-						<div style={{fontStyle: 'italic'}}>Unknown</div>          
+						<div style={{fontStyle: 'italic'}}></div>          
 					</li>
 					<div>
 					<RenderInfo 

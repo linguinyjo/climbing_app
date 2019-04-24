@@ -48,11 +48,11 @@ body {
 }
 .boxmodel {
     width: 50%;
-    border: 2px solid black;
-    
+    border: 2px solid black; 
     margin: auto;
     background-color: beige;
     text-align: center;
+    
 }
 
 #map {

@@ -30,7 +30,7 @@ function RenderSetting(props){
             styleName = undefined;
         }
         return (
-          <div style={{textAlign: 'justify', margin: 'auto', width: '72%'}}>
+          <div style={{textAlign: 'center',  }}>
             <li className={styleName} key={item[0].title} style={{margin: '20px', listStylePosition: 'inside', listStyleType: 'none'}}>
               {item[0]['title'] + ' is being reset on: ' + date} 
             </li>
@@ -60,7 +60,9 @@ class Stronghold extends React.Component {
     } 
     componentDidMount(){
       api.getEvents(this.state.calendarId, (setting) => {
+        
         for(let array in setting) {
+          console.log(array)
           setting[array].sort((a, b) =>  new Date(a['start']) - new Date(b['start']))  
         }
         this.setState({setting})
@@ -77,7 +79,7 @@ class Stronghold extends React.Component {
                   alt={''}/>
               </a>
             </div>
-          <ul >    
+          <ul style={{padding: '0'}}>    
             <li style={ {listStyleType: 'none'} }> 
             <div style= {{fontSize: 20, fontWeight: 'bold'}}>Route Setting Schedule:</div>    
             <RenderSetting setting={this.state.setting}/>        
@@ -103,3 +105,19 @@ module.exports = Stronghold;
 
 
 
+// setting = {
+//   white: [
+//     {start: "26/07/2019"}, {start: "21/05/2019"}, {start: "23/06/2019"}, {start: "21/06/2019"}, {start: "05/05/2019"}, {start: "17/05/2019"}, {start: "22/05/2019"}
+//   ],
+//   black: [
+//     {start: "26/07/2019"}, {start: "21/05/2019"}, {start: "23/06/2019"}, {start: "21/06/2019"}, {start: "05/05/2019"}, {start: "17/05/2019"}, {start: "22/05/2019"}
+//   ]
+// }
+
+// for(let array in setting) {
+//   setting[array].sort((a, b) => {
+//     new Date(a) -  new Date(b)
+//   })
+// }
+
+// console.log(setting)

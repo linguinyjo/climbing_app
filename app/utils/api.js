@@ -19,22 +19,22 @@ export function getEvents (id, callback) {
       }
       else if (resp.body.summary == 'castle_climbing'){
         var setting = {
-          slab: [], panels: [], catacomb: [], mezz: [], pen: [], compwall: [], loft: []
+          mezz: [], loft: [], pen: [], catacomb: [], panels: [],   slab: [],  compwall: [] 
         }
       }
       
       JSON.parse(resp.text).items.map((event) => {
         if(event.status == 'cancelled') return;
         if(moment(today).isAfter(event.start.date)) return;
-        let circuit = event.summary.split(' ')[0].toLowerCase()
         
+        let circuit = event.summary.split(' ')[0].toLowerCase()
         setting[circuit].push({
           start: event.start.date,
           end: event.end.date,
           title: event.summary,
         })          
       })
-      console.log(setting)    
+       
       callback(setting)
     }
   })
