@@ -4,8 +4,6 @@ var Stronghold = require('../climbingCentres/stronghold')
 var Yonder = require('../climbingCentres/yonder')
 var MileEnd = require('../climbingCentres/mile_end')
 
-
-
 function SelectCentre (props) {
   climbingCentres = [
     {name: "Castle", img: 'https://storage.ning.com/topology/rest/1.0/file/get/68584701?profile=RESIZE_710x&width=184&height=184&crop=1%3A1'}, 
