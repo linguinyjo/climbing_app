@@ -9,6 +9,7 @@ function RenderSetting(props){
   for(let key in props.setting){
     if(props.setting[key]['0'] === undefined){
       unknownProblems.push(key)
+      console.log(unknownProblems)
     } 
   }
   return (
@@ -30,7 +31,7 @@ function RenderSetting(props){
         return (
           <div style={{textAlign: 'center', margin: 'auto'  }}>
           <li key={item[0]} style={{margin: '20px', listStylePosition: 'inside', listStyleType: 'none'}}>
-            {`There is currently no set date for the ${unknownProblems[0]}`}
+            {`There is currently no set date for the ${item}`}
           </li>
           </div>
           )
