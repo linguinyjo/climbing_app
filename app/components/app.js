@@ -7,6 +7,7 @@ var Router = ReactRouter.BrowserRouter;
 var Route = ReactRouter.Route;
 //var Switch = ReactRouter.Switch;
 
+
 class App extends React.Component {
   render() {
     
@@ -17,7 +18,7 @@ class App extends React.Component {
             <Nav />
             <Route path='/centres' component={Centres} />
           </div>
-        
+          
         </main>
       </Router>
     )

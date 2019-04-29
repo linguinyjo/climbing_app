@@ -16,7 +16,7 @@ export function getEvents (id, callback) {
       }
       else if (resp.body.summary == 'castle_climbing'){
         var setting = {
-          mezz: [], loft: [], pen: [], catacomb: [], panels: [],   slab: [],  compwall: [] 
+             mezz: [],  loft: [],  pen: [],  catacomb: [],  panels: [],  slab: [],  compwall: []                 
         }
       }
       
