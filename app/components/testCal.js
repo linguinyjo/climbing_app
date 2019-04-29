@@ -1,8 +1,7 @@
-var React = require('react')
-import Calendar from "react-big-calendar";
-import moment from "moment";
-import "react-big-calendar/lib/css/react-big-calendar.css";
-
+import React from 'react'
+import Calendar from "react-big-calendar"
+import moment from "moment"
+import "react-big-calendar/lib/css/react-big-calendar.css"
 
 const localizer = Calendar.momentLocalizer(moment);
 
@@ -21,9 +20,7 @@ class TestCal extends React.Component {
         };
     }
 
-
-  render() {
-    
+  render() { 
     return (
       <div className="App">
         <Calendar

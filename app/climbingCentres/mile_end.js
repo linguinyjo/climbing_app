@@ -1,6 +1,6 @@
-var React = require('react');
-var RenderMap = require('../utils/renderMap')
-var RenderInfo = require('../utils/renderInfo')
+import React from 'react'
+import RenderMap from '../utils/renderMap'
+import RenderInfo from '../utils/renderInfo'
 
 class MileEnd extends React.Component {
 	constructor() {
@@ -49,6 +49,5 @@ class MileEnd extends React.Component {
 		)
 	}
 }
-
-module.exports = MileEnd;
+export default MileEnd;
 

@@ -1,7 +1,6 @@
-var React = require('react');
+import React from 'react'
 
 function RenderOpeningTimes(props){
-	
 	return (
 		<ul className='openingTimes'>
 			{props.openingTimes.map((time, index) => {
@@ -21,9 +20,7 @@ class RenderInfo extends React.Component {
   constructor(){
   super();
 	}
-	
-	render (){
-		
+	render(){
 		var style1= {fontSize: 20, fontWeight: 'bold', marginTop: '50px', marginBottom: '20px'}
 		return(
 			<div>
@@ -36,7 +33,7 @@ class RenderInfo extends React.Component {
 	}
 }
 
-module.exports = RenderInfo
+export default RenderInfo
 
 
 

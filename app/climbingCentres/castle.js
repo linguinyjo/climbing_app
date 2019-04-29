@@ -1,17 +1,17 @@
-var React = require('react');
-var RenderMap = require('../utils/renderMap')
-var RenderInfo = require('../utils/renderInfo')
-var api = require('../utils/api');
+import React from'react'
+import RenderMap from'../utils/renderMap'
+import RenderInfo from'../utils/renderInfo'
+import GetEvents from'../utils/api'
 
 function RenderSetting(props){
   const unknownProblems = []
-  const sortedArray = []
+  const knownProblems = []
   for(let route in props.setting){
     if(props.setting[route][0]){
-      sortedArray.push([route, props.setting[route][0]['start']])   
+      knownProblems.push([route, props.setting[route][0]['start']])   
     }  
   }
-  sortedArray.sort((a, b) => {
+  knownProblems.sort((a, b) => {
     return new Date(a[1]) - new Date(b[1])
   });
   for(let key in props.setting){
@@ -21,12 +21,12 @@ function RenderSetting(props){
   }
   return (
     <ul>
-      {sortedArray.map((item) => {
+      {knownProblems.map((item) => {
         let date = moment(item[1]).format("dddd Do of MMMM")
         return (
           <div key={item[0]} style={{textAlign: 'center', margin: 'auto'}}>
             <li style={{margin: '20px', listStylePosition: 'inside', listStyleType: 'none'}}>
-              {`The ${item[0]['title']} is being reset on: ${date}`}
+              {`The ${item[0]} is being reset on: ${date}`}
             </li>
           </div>
         )     
@@ -60,9 +60,9 @@ class Castle extends React.Component {
         }
     }
     componentDidMount(){
-      api.getEvents(this.state.calendarId, (setting) => {
+      GetEvents(this.state.calendarId, (setting) => {
         for(let array in setting) {
-          setting[array].sort((a, b) =>  new Date(a['start']) - new Date(b['start']))
+          setting[array].sort((a, b) => new Date(a['start']) - new Date(b['start']))
         }
         this.setState({setting})
       })
@@ -89,8 +89,7 @@ class Castle extends React.Component {
               address={this.state.address}
               url={this.state.url}
             />
-            </div>
-            
+            </div> 
             <RenderMap 
               latlng={this.state.latlng}
               name={this.state.name}
@@ -100,6 +99,5 @@ class Castle extends React.Component {
       )
     }
 }
-
-module.exports = Castle;
+export default Castle;
 

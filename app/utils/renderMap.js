@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react'
 
 class RenderMap extends React.Component {
     constructor(){
@@ -37,4 +37,4 @@ class RenderMap extends React.Component {
         script.defer = true
         index.parentNode.insertBefore(script, index)
     }
-module.exports = RenderMap;
+export default RenderMap;

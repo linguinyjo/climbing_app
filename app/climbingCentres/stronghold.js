@@ -1,7 +1,7 @@
-var React = require('react');
-var api = require('../utils/api');
-var RenderMap = require('../utils/renderMap')
-var RenderInfo = require('../utils/renderInfo')
+import React from 'react'
+import GetEvents from '../utils/api'
+import RenderMap from '../utils/renderMap'
+import RenderInfo from '../utils/renderInfo'
 
 
 function RenderSetting(props){
@@ -58,14 +58,13 @@ class Stronghold extends React.Component {
         }
     } 
     componentDidMount(){
-      api.getEvents(this.state.calendarId, (setting) => {
+      GetEvents(this.state.calendarId, (setting) => {
         for(let array in setting) {
           setting[array].sort((a, b) =>  new Date(a['start']) - new Date(b['start']))  
         }
         this.setState({setting})
       })
     }
-    
     render () {
       return (
         <div className='boxmodel' id='mobile'> 
@@ -97,8 +96,7 @@ class Stronghold extends React.Component {
       )
     }
 }
-
-module.exports = Stronghold;
+export default Stronghold;
 
 
 

@@ -1,7 +1,7 @@
 import request from 'superagent';
-var today = moment().format('YYYY-MM-DD'); 
 
-export function getEvents (id, callback) {  
+export default function GetEvents (id, callback) {  
+  const today = moment().format('YYYY-MM-DD');
   const CALENDAR_ID = id + '@group.calendar.google.com'
   const API_KEY = config.calendar
   let url = `https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events?key=${API_KEY}`
@@ -19,7 +19,6 @@ export function getEvents (id, callback) {
              mezz: [],  loft: [],  pen: [],  catacomb: [],  panels: [],  slab: [],  compwall: []                 
         }
       }
-      
       JSON.parse(resp.text).items.map((event) => {
         if(event.status == 'cancelled') return;
         if(moment(today).isAfter(event.start.date)) return;
@@ -34,3 +33,4 @@ export function getEvents (id, callback) {
     }
   })
 }
+

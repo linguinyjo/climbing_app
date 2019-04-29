@@ -1,6 +1,6 @@
-var React = require('react');
-var RenderMap = require('../utils/renderMap')
-var RenderInfo = require('../utils/renderInfo')
+import React from 'react'
+import RenderMap from '../utils/renderMap'
+import RenderInfo from '../utils/renderInfo'
 
 class Yonder extends React.Component {
 	constructor() {
@@ -50,5 +50,5 @@ class Yonder extends React.Component {
 	}
 }
 
-module.exports = Yonder;
+export default Yonder;
 
