@@ -32,7 +32,7 @@ function RenderSetting(props){
         return (
           <div style={{textAlign: 'center',  }}>
             <li className={styleName} key={item[0].title} style={{margin: '20px', listStylePosition: 'inside', listStyleType: 'none'}}>
-              {item[0]['title'] + ' is being reset on: ' + date} 
+              {`${item[0]['title']} is being reset on:  ${date}`} 
             </li>
           </div>
         )
@@ -55,7 +55,6 @@ class Stronghold extends React.Component {
           latlng: {lat: 51.5907537, lng: -0.0639357},
           url: 'https://www.google.com/maps/dir//Stronghold+Climbing+Centre,+Ashley+Road,+London/@51.5901929,-0.0646453,16z/data=!4m9!4m8!1m0!1m5!1m1!1s0x48761c250342ff8d:0xf897154aebf7af29!2m2!1d-0.061747!2d51.5907537!3e2',
           calendarId: 'kkbo6hvijn9gk8qicm0t14c88o'
- 
         }
     } 
     componentDidMount(){
@@ -79,8 +78,8 @@ class Stronghold extends React.Component {
             </div>
           <ul style={{padding: '0'}}>    
             <li style={ {listStyleType: 'none'} }> 
-            <div style= {{fontSize: 20, fontWeight: 'bold'}}>Route Setting Schedule:</div>    
-            <RenderSetting setting={this.state.setting}/>        
+              <div style= {{fontSize: 20, fontWeight: 'bold'}}>Route Setting Schedule:</div>    
+              <RenderSetting setting={this.state.setting}/>        
             </li>
             <div>
               <RenderInfo 

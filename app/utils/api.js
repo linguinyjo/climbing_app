@@ -1,7 +1,5 @@
 import request from 'superagent';
-
 var today = moment().format('YYYY-MM-DD'); 
-
 
 export function getEvents (id, callback) {  
   const CALENDAR_ID = id + '@group.calendar.google.com'
@@ -18,23 +16,21 @@ export function getEvents (id, callback) {
       }
       else if (resp.body.summary == 'castle_climbing'){
         var setting = {
-          mezz: [], loft: [], pen: [], catacomb: [], panels: [],   slab: [],  compwall: [] 
+             mezz: [],  loft: [],  pen: [],  catacomb: [],  panels: [],  slab: [],  compwall: []                 
         }
       }
       
       JSON.parse(resp.text).items.map((event) => {
         if(event.status == 'cancelled') return;
         if(moment(today).isAfter(event.start.date)) return;
-        
         let circuit = event.summary.split(' ')[0].toLowerCase()
         setting[circuit].push({
           start: event.start.date,
           end: event.end.date,
           title: event.summary,
         })          
-      })
-       
-      callback(setting)
+      })  
+    callback(setting)
     }
   })
 }

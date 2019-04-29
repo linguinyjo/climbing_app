@@ -3,9 +3,17 @@ var RenderMap = require('../utils/renderMap')
 var RenderInfo = require('../utils/renderInfo')
 var api = require('../utils/api');
 
-
 function RenderSetting(props){
   const unknownProblems = []
+  const sortedArray = []
+  for(let route in props.setting){
+    if(props.setting[route][0]){
+      sortedArray.push([route, props.setting[route][0]['start']])   
+    }  
+  }
+  sortedArray.sort((a, b) => {
+    return new Date(a[1]) - new Date(b[1])
+  });
   for(let key in props.setting){
     if(props.setting[key]['0'] === undefined){
       unknownProblems.push(key)
@@ -13,27 +21,24 @@ function RenderSetting(props){
   }
   return (
     <ul>
-      {Object.values(props.setting).map((item) => {
-        if(item.length === 0) return; 
-        else {
-          let date = moment(item[0]['start']).format("dddd Do of MMMM" )
-          return (
-            <div style={{textAlign: 'center', margin: 'auto'}}>
-            <li key={item[0].title} style={{margin: '20px', listStylePosition: 'inside', listStyleType: 'none'}}>
-              {'The ' + item[0]['title'] + ' is being reset on: ' + date}
+      {sortedArray.map((item) => {
+        let date = moment(item[1]).format("dddd Do of MMMM")
+        return (
+          <div key={item[0]} style={{textAlign: 'center', margin: 'auto'}}>
+            <li style={{margin: '20px', listStylePosition: 'inside', listStyleType: 'none'}}>
+              {`The ${item[0]['title']} is being reset on: ${date}`}
             </li>
-            </div>
-          )     
-        }})
-      }
+          </div>
+        )     
+      })}
       {unknownProblems.map((item) => {
         return (
-          <div style={{textAlign: 'center', margin: 'auto'  }}>
-          <li key={item[0]} style={{margin: '20px', listStylePosition: 'inside', listStyleType: 'none'}}>
-            {'There is currently no set date for the ' + unknownProblems[0] }
+          <div key={item[0]} style={{textAlign: 'center', margin: 'auto'  }}>
+          <li  style={{margin: '20px', listStylePosition: 'inside', listStyleType: 'none'}}>
+            {`There is currently no set date for the ${item}`}
           </li>
           </div>
-          )
+        )
       })}
     </ul>
   )
