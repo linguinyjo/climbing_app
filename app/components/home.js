@@ -11,11 +11,10 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <h2>Climbing in London</h2>
+        <h2></h2>
         <RenderCalendar />
       </div>
     )
   }
 }
-
 export default Home

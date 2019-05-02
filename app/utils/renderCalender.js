@@ -50,7 +50,7 @@ class RenderCalendar extends React.Component {
   componentDidMount() {
     if(this.state.showCastle === true){
       getEvents(this.state.castleId, (events) => {         
-        this.setState({ events: [...this.state.events, ...events] })       
+        this.setState({ events })       
       })
     }
     if(this.state.showStronghold === true){

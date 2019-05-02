@@ -5,7 +5,6 @@ function RenderAddress(props){
 		<a href={props.url} className='address'>{props.address}</a>
 	)
 }
-
 class RenderMap extends React.Component {
     constructor(){
     super();
