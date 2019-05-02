@@ -5,8 +5,8 @@ function RenderOpeningTimes(props){
 		<ul className='openingTimes'>
 			{props.openingTimes.map((time, index) => {
 				return (
-					<div>
-						<li style={{padding: '5px'}} key={index}>{time}</li>
+					<div key={index}>
+						<li style={{padding: '5px'}}>{time}</li>
 					</div>
 				)}
 			)}
@@ -27,7 +27,6 @@ class RenderInfo extends React.Component {
 		)
 	}
 }
-
 export default RenderInfo
 
 

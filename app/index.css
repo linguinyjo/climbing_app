@@ -109,7 +109,10 @@ h2 {
     font-style: italic; 
 }
 .nav {
-    display: flex
+    display: flex;
+    background-color: beige;
+    border-style: outset;
+    border-color: beige
 }
 .nav li {
     padding: 10px;
@@ -123,6 +126,30 @@ a {
     text-decoration: none
 }
 .Big-Calendar {
-    height: 500px;
+    height: 750px;
+    margin: auto;
+    width: 75%
 }
-
+.div-key {
+    margin: auto;
+    width: 50%;
+    text-align: center
+}
+.key {
+    
+    width: 20px;
+    height: 20px;
+    margin-top: 15px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    vertical-align: sub;
+    display: inline-block;
+  }
+  .castle-key {
+    background: rgb(51, 159, 179);
+  }
+  
+  .stronghold-key {
+    background: rgb(89, 156, 92);
+  }
+  
+ 

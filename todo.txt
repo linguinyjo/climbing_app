@@ -18,4 +18,5 @@ Feature ideas:
 
 01/05/2019:
 -change route setting display format into table
--create a front page displaying weekly/monthly calendar with drop down option to select centre
+-create a front page displaying weekly/monthly calendar ✔
+-create drop down option to select centres to display on calendar

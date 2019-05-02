@@ -45,19 +45,23 @@ class RenderCalendar extends React.Component {
       showStronghold: true,
       strongholdId: 'kkbo6hvijn9gk8qicm0t14c88o'
     }
+    this.handleChange = this.handleChange.bind(this)
   }
   componentDidMount() {
     if(this.state.showCastle === true){
       getEvents(this.state.castleId, (events) => {         
         this.setState({ events: [...this.state.events, ...events] })       
       })
-      
     }
     if(this.state.showStronghold === true){
       getEvents(this.state.strongholdId, (events) => {    
         this.setState({ events: [...this.state.events, ...events] }) 
       })
     }
+  }
+  handleChange() {
+    const {name, value, type, checked} = event.target   
+    type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
   }
   render() {
     let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k])
@@ -74,26 +78,50 @@ class RenderCalendar extends React.Component {
           borderRadius: '0px',
           opacity: 0.8,
           color: 'black',
-          border: '0px',
+          border: '1px',
           display: 'block'
       };
       return {
           style: style
-      };
+      }
     }
     return (
-      <div className="Big-Calendar">
-        <BigCalendar
-          height={'50px'}
-          events={this.state.events}
-          views={allViews}
-          showMultiDayTimes
-          step={60}
-          showMultiDayTimes
-          defaultDate={new Date('05/02/2019')}
-          localizer={localizer}
-          eventPropGetter={(eventStyleGetter)}
-        />
+      <div>
+        <div className="Big-Calendar">
+          <BigCalendar
+            height={'50px'}
+            events={this.state.events}
+            views={allViews}
+            showMultiDayTimes
+            step={60}
+            showMultiDayTimes
+            defaultDate={new Date('05/02/2019')}
+            localizer={localizer}
+            eventPropGetter={eventStyleGetter}
+          />
+        </div>
+        <div className='div-key'>
+          <form>
+            <div>
+              <label>
+                <div>
+                  <span className='key castle-key'></span>
+                  <span style={{paddingLeft: '10px'}}>The Castle</span>
+                  <input type="checkbox" name='showCastle' checked={this.state.showCastle} onChange={this.handleChange} />
+                </div>
+              </label>
+            </div>
+            <div >
+              <label>
+                <div>
+                  <span className='key stronghold-key'></span>
+                  <span style={{paddingLeft: '10px'}}>Stronghold</span>
+                  <input type="checkbox" name='showStronghold' checked={this.state.showStronghold} onChange={this.handleChange} />
+                </div>
+              </label>
+            </div>
+          </form>
+        </div>
       </div>
     )
   }

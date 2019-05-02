@@ -5,7 +5,6 @@ import RenderInfo from '../utils/renderInfo'
 
 
 function RenderSetting(props){
-  console.log(props)
   return (
     <ul>
       {Object.values(props.setting).map((item) => {
