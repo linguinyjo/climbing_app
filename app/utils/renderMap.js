@@ -1,5 +1,11 @@
 import React from 'react'
 
+function RenderAddress(props){
+	return (
+		<a href={props.url} className='address'>{props.address}</a>
+	)
+}
+
 class RenderMap extends React.Component {
     constructor(){
     super();
@@ -24,8 +30,13 @@ class RenderMap extends React.Component {
       })
     } 
     render() {
+      var style1= {fontSize: 20, fontWeight: 'bold', marginTop: '20px', marginBottom: '20px'}
         return (
-          <div id='map'></div>  
+          <div className={'div-style-1'}>
+            <div style={style1}>Address</div>
+            <RenderAddress address={this.props.address} url={this.props.url}/>
+            <div id='map'></div>
+          </div>  
         )
       }
     }

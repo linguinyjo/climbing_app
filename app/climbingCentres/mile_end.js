@@ -36,14 +36,14 @@ class MileEnd extends React.Component {
 					<div>
 					<RenderInfo 
 						openingTimes={this.state.openingTime} 
-						address={this.state.address}
-						url={this.state.url}
 					/>
 					</div>    
 					<RenderMap 
-						latlng={this.state.latlng}
-						name={this.state.name}
-					/>
+                latlng={this.state.latlng}
+                name={this.state.name}
+                address={this.state.address}
+                url={this.state.url}
+              />
 				</ul>
 		</div>
 		)

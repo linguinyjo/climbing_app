@@ -1,19 +1,21 @@
 to do 11/04/2019:
--order dates in api.js
--create castle calendar
+-order dates in api.js ✔
+-create castle calendar ✔
 
 12/04/2019:
--fix date format
--create map integration via google api
--start thinking about formating
+-fix date format ✔
+-create map integration via google api ✔
 
 16/04/2019:
 -look into deleting git history and securing api keys
 
 24/04/2019: 
 Feature ideas:
--display last post on twitter
+-display last post on twitter 
 -history to the setting schedule so last set date is available(?)
--create a front page with weekly summary
--setup routing for each page
+-setup routing for each page ✔
 -user accounts and auth with settings to customise which centres to display
+
+01/05/2019:
+-change route setting display format into table
+-create a front page displaying weekly/monthly calendar with drop down option to select centre

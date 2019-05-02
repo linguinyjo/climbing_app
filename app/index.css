@@ -5,20 +5,17 @@ body {
 .containers {
     max-width: 100px;
     margin: auto;
-    
 }
 .centres {
     display: flex;
     justify-content: center;
 }
-
 .centres li {
     margin: 10px;
     font-weight: bold;
     cursor: pointer;
     list-style: none
 }
-
 .avatar {
     width: 150px;
     border-radius: 50%;
@@ -36,12 +33,10 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
 }
-
-.popular-item {
+h2 {
     margin: 20px;
     text-align: center;
 }
-
 .popular-rank {
     font-size: 20px;
     margin: 10px;
@@ -50,8 +45,19 @@ body {
     width: 50%;
     border: 2px solid black; 
     margin: auto;
-    background-color: beige;
-    text-align: center;   
+    background-color: rgb(221, 245, 255);
+    text-align: center; 
+}
+.div-style-1 {
+    background-color: rgb(229, 246, 252);
+    border-top-style: ridge;
+    border-bottom-style: ridge;
+    border-width: 4px;
+    padding-top: 20px;
+    padding-bottom: 20px
+}
+.div-style-2 {
+    padding-bottom: '50px'
 }
 
 @media (max-width: 768px) {
@@ -107,34 +113,16 @@ body {
 }
 .nav li {
     padding: 10px;
-    list-style: none
+    list-style: none;
 }
 .active {
     font-weight: bold
 }
+a {
+    color: rgb(10, 10, 141);
+    text-decoration: none
+}
+.Big-Calendar {
+    height: 500px;
+}
 
-/* delete after use */
-
-.App {
-    text-align: center;
-  }
-  
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
-  }
-  
-  .App-header {
-    background-color: #222;
-    height: 150px;
-    padding: 20px;
-    color: white;
-  }
-  
-  .App-title {
-    font-size: 1.5em;
-  }
-  
-  .App-intro {
-    font-size: large;
-  }
