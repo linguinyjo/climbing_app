@@ -2,49 +2,7 @@ import React from'react'
 import RenderMap from'../utils/renderMap'
 import RenderInfo from'../utils/renderInfo'
 import RenderEvents from'../utils/api'
-
-function RenderSetting(props){
-  
-  const unknownProblems = []
-  const knownProblems = []
-  
-  for(let route in props.setting){
-    if(props.setting[route][0]){
-      knownProblems.push([route, props.setting[route][0]['start']])   
-    }  
-  }
-  knownProblems.sort((a, b) => {
-    return new Date(a[1]) - new Date(b[1])
-  });
-  for(let key in props.setting){
-    if(props.setting[key]['0'] === undefined){
-      unknownProblems.push(key)
-    } 
-  }
-  return (
-    <ul style={{width: '53%', margin: 'auto'}}>
-      {knownProblems.map((item) => {
-        let date = moment(item[1]).format("dddd Do of MMMM")
-        return (
-          <div key={item[0]} style={{textAlign: 'justify', margin: 'auto'}}>
-            <li style={{margin: '10px', listStylePosition: 'inside', listStyleType: 'none'}}>
-              {`The ${item[0]} is being reset on: ${date}`}
-            </li>
-          </div>
-        )     
-      })}
-      {unknownProblems.map((item) => {
-        return (
-          <div key={item[0]} style={{textAlign: 'justify', margin: 'auto'  }}>
-          <li  style={{margin: '10px', listStylePosition: 'inside', listStyleType: 'none'}}>
-            {`There is currently no set date for the ${item}`}
-          </li>
-          </div>
-        )
-      })}
-    </ul>
-  )
-}
+import BasicTable from '../components/reactTable'
 
 class Castle extends React.Component {
     constructor() {
@@ -83,8 +41,8 @@ class Castle extends React.Component {
             </div>
             <ul style={{padding: '0'}}>    
             <li style={ {listStyleType: 'none'} }> 
-              <div style= {{fontSize: 20, fontWeight: 'bold', paddingBottom: '20px'}}>Route Setting Schedule:</div>      
-              <RenderSetting setting={this.state.setting}/>          
+              <div style= {{fontSize: 20, fontWeight: 'bold', paddingBottom: '20px'}}></div>      
+						  <BasicTable data={this.state.setting}/>         
             </li>
             <div style={{paddingTop: '30px'}}>
               <RenderInfo 
@@ -106,3 +64,43 @@ class Castle extends React.Component {
 }
 export default Castle;
 
+// function RenderSetting(props){
+//   const unknownProblems = []
+//   const knownProblems = []
+//   for(let route in props.setting){
+//     if(props.setting[route][0]){
+//       knownProblems.push([route, props.setting[route][0]['start']])   
+//     }  
+//   }
+//   knownProblems.sort((a, b) => {
+//     return new Date(a[1]) - new Date(b[1])
+//   });
+//   for(let key in props.setting){
+//     if(props.setting[key]['0'] === undefined){
+//       unknownProblems.push(key)
+//     } 
+//   }
+//   return (
+//     <ul style={{width: '53%', margin: 'auto'}}>
+//       {knownProblems.map((item) => {
+//         let date = moment(item[1]).format("dddd Do of MMMM")
+//         return (
+//           <div key={item[0]} style={{textAlign: 'justify', margin: 'auto'}}>
+//             <li style={{margin: '10px', listStylePosition: 'inside', listStyleType: 'none'}}>
+//               {`The ${item[0]} is being reset on: ${date}`}
+//             </li>
+//           </div>
+//         )     
+//       })}
+//       {unknownProblems.map((item) => {
+//         return (
+//           <div key={item[0]} style={{textAlign: 'justify', margin: 'auto'  }}>
+//           <li  style={{margin: '10px', listStylePosition: 'inside', listStyleType: 'none'}}>
+//             {`There is currently no set date for the ${item}`}
+//           </li>
+//           </div>
+//         )
+//       })}
+//     </ul>
+//   )
+// }

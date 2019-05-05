@@ -1,36 +1,47 @@
-import React from 'react'
+import React from 'react';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 
-export default class Example extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      rows: 6,
-      columns: 2
-    }
-  }
-  render(){
-    let rows = [];
-    for (let i = 0; i < this.state.rows; i++){
-      let rowID = `row${i}`
-      let cell = []
-      for (let idx = 0; idx < this.state.columns; idx++){
-        let cellID = `cell${i}-${idx}`
-        cell.push(<td key={cellID} id={cellID}>Hello</td>)
+function priceFormatter(cell, row) {
+  let styleName
+  if(cell == 'loft')
+    styleName = 'whiteCircuit'
+  return (
+    <div className={styleName}>{cell}</div>
+  );
+}
+
+export default class BasicTable extends React.Component {
+  render() {
+    let set = []
+    for(let each of Object.values(this.props.data)){
+      if(each.length != 0){
+        set.push( {id: each[0].title, date: each[0].start} )
       }
-      rows.push(<tr key={i} id={rowID}>{cell}</tr>)
+      set.sort((a, b) => new Date(a['date']) - new Date(b['date']))
     }
-    return(
-      <div className="container">
-        <div className="row">
-          <div className="col s12 board">
-            <table id="simple-board">
-               <tbody>
-                 {rows}
-               </tbody>
-             </table>
-          </div>
-        </div>
+    for(let each in this.props.data) {
+      if(this.props.data[each]['0'] === undefined){
+       set.push({id: each, date: 'unknown'})
+      } 
+    }
+    return (
+      <div className='setting-table'>
+        <table className='table'><BootstrapTable 
+          data={set.map((x) => {
+              return ((x.date != 'unknown') 
+                ? {id: x.id, date: moment(x.date).format("dddd Do of MMMM")} 
+                : {id: x.id, date: x.date})        
+          })
+        }>
+          <TableHeaderColumn dataField='id' isKey={ true } dataFormat={priceFormatter}>Area/circuit</TableHeaderColumn>
+          <TableHeaderColumn dataField='date'>Date of next reset</TableHeaderColumn>
+        </BootstrapTable>
+        </table>
       </div>
-    )
+    );
   }
 }
+
+
+

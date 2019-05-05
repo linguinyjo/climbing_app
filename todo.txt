@@ -12,11 +12,14 @@ to do 11/04/2019:
 24/04/2019: 
 Feature ideas:
 -display last post on twitter 
--history to the setting schedule so last set date is available(?)
+-history to the setting schedule so last set date is available ✔ (solved with the front page calendar) 
 -setup routing for each page ✔
 -user accounts and auth with settings to customise which centres to display
 
 01/05/2019:
 -change route setting display format into table
 -create a front page displaying weekly/monthly calendar ✔
--create drop down option to select centres to display on calendar
+-dynamically re-render calendar based on selected centres
+
+02/05/2019:
+-combine opening times with map component so that they render together

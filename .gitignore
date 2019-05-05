@@ -4,3 +4,5 @@ config.js
 .firebaserc
 init-firebase.js
 firebase.json
+todo.txt
+app/404.html

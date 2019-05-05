@@ -9,22 +9,22 @@ function RenderSetting(props){
     <ul>
       {Object.values(props.setting).map((item) => {
         let date = moment(item[0]['start']).format('dddd Do of MMMM')
-        var styleName;  
+        let styleName;  
         switch(item[0]['title']) {
           case 'White V4-V6 Circuit':
-            var styleName = 'whiteCircuit'
+            styleName = 'whiteCircuit'
               break;
           case 'Black V6-V8+ Circuit':
-            var styleName = 'blackCircuit'
+            styleName = 'blackCircuit'
               break;
           case 'Green V2-V4 Circuit':
-            var styleName = 'greenCircuit'
+            styleName = 'greenCircuit'
               break;         
           case 'Purple V3-V5 Circuit':
-            var styleName = 'purpleCircuit'
+            styleName = 'purpleCircuit'
               break;         
           case 'Comp Wall':
-            var styleName = 'compCircuit'
+            styleName = 'compCircuit'
               break; 
           default:
             styleName = undefined;

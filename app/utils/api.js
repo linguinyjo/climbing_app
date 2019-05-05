@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-export default function GetEvents (id, setting, callback) {
+export default function RenderEvents (id, setting, callback) {
   const today = moment().format('YYYY-MM-DD');
   const API_KEY = config.calendar
   const CALENDAR_ID = id + '@group.calendar.google.com'  
@@ -23,4 +23,5 @@ export default function GetEvents (id, setting, callback) {
     }
   })
 }
+
 

@@ -7,7 +7,6 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 const localizer = BigCalendar.momentLocalizer(moment) 
 const API_KEY = config.calendar
 
-
 function getEvents (id, callback) {
   const CALENDAR_ID = id + '@group.calendar.google.com' 
   let url = `https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events?key=${API_KEY}`
@@ -34,16 +33,16 @@ function getEvents (id, callback) {
       }
     })
 }
+
 class RenderCalendar extends React.Component {
   constructor() {
     super();
     this.state = {
       events: [],
-      eventsStr: [],
       showCastle: true,
       castleId: 'sjos70i2irfuhfsrps6egjbcok',
       showStronghold: true,
-      strongholdId: 'kkbo6hvijn9gk8qicm0t14c88o'
+      strongholdId: 'kkbo6hvijn9gk8qicm0t14c88o',
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -54,8 +53,8 @@ class RenderCalendar extends React.Component {
       })
     }
     if(this.state.showStronghold === true){
-      getEvents(this.state.strongholdId, (events) => {    
-        this.setState({ events: [...this.state.events, ...events] }) 
+      getEvents(this.state.strongholdId, (events) => {   
+        this.state.events ? this.setState({ events: [...this.state.events, ...events] }) : this.setState({ events }) 
       })
     }
   }
@@ -63,9 +62,10 @@ class RenderCalendar extends React.Component {
     const {name, value, type, checked} = event.target   
     type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
   }
+
   render() {
     let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k])
-    function eventStyleGetter (event, start, end, isSelected) {
+    function eventStyleGetter (event) {
       let backgroundColor = ''
       if(event.centre == 'castle') {
         backgroundColor = 'rgb(51, 159, 179)'
@@ -82,7 +82,7 @@ class RenderCalendar extends React.Component {
           display: 'block'
       };
       return {
-          style: style
+        style: style
       }
     }
     return (

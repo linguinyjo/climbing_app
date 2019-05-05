@@ -1,6 +1,6 @@
 import React from 'react'
 import RenderCalendar from '../utils/renderCalender'
-import Example from './reactTable'
+
 
 class Home extends React.Component {
   constructor(){
