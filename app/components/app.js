@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Nav from './nav'
 import Home from './home'
 
+
 class App extends React.Component {
   render() {
     return (
@@ -26,3 +27,4 @@ export default App;
 
 
 
+ 

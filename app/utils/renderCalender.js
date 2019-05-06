@@ -59,8 +59,23 @@ class RenderCalendar extends React.Component {
     }
   }
   handleChange() {
-    const {name, value, type, checked} = event.target   
+    const {name, value, type, checked} = event.target
+    console.log(name)
     type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
+  }
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.showCastle != this.state.showCastle || prevState.showStronghold != this.state.showStronghold) {
+      (this.state.showCastle === true) 
+      ? getEvents(this.state.castleId, (events) => this.setState({ events }))
+      : this.setState({ events: [] })
+  
+      if(this.state.showStronghold === true){
+        getEvents(this.state.strongholdId, (events) => {   
+          this.state.events ? this.setState({ events: [...this.state.events, ...events] }) : this.setState({ events }) 
+        })
+      }
+      else this.setState({ events: [] })
+    }
   }
 
   render() {
