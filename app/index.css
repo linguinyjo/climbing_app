@@ -40,6 +40,12 @@ h2 {
     font-size: 20px;
     margin: 10px;
 }
+#setting-head {
+    font-size: 2em; 
+    font-weight: bold;
+    padding-bottom: 20px;
+    
+}
 .boxmodel {
     width: 60%;
     border: 2px solid black; 
@@ -48,11 +54,12 @@ h2 {
     text-align: center; 
 }
 .setting-table {
-    width: 60%; 
+    width: 60%;
     margin: auto;
     background-color: rgb(229, 246, 252);
-    text-align: center; 
-
+}
+.my-custom-class {
+    text-align: center
 }
 .div-style-1 {
     background-color: rgb(229, 246, 252);
@@ -63,7 +70,8 @@ h2 {
     padding-bottom: 20px
 }
 .div-style-2 {
-    padding-bottom: '50px'
+    padding-bottom: '50px';
+    background: rgb(228, 237, 248)
 }
 #map {
     height: 400px;

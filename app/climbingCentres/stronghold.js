@@ -2,7 +2,7 @@ import React from 'react'
 import RenderEvents from '../utils/api'
 import RenderMap from '../utils/renderMap'
 import RenderInfo from '../utils/renderInfo'
-
+import BasicTable from '../components/reactTable'
 
 function RenderSetting(props){
   return (
@@ -41,7 +41,6 @@ function RenderSetting(props){
     </ul> 
   )
 }
-
 class Stronghold extends React.Component {
     constructor() {
         super();
@@ -59,41 +58,44 @@ class Stronghold extends React.Component {
         }
     } 
     componentDidMount(){
-      RenderEvents(this.state.calendarId, this.state.settingTemplate, (setting) => {
+      RenderEvents(this.state.calendarId, this.state.settingTemplate, this.createSetTitle, (setting) => {
         for(let array in setting) {
           setting[array].sort((a, b) =>  new Date(a['start']) - new Date(b['start']))  
         }
         this.setState({setting})
       })
     }
+    createSetTitle = (str) => str.split(' ')[0].toLowerCase()
+
     render () {
       return (
-        <div className='boxmodel' id='mobile'> 
-           <div> 
-              <a href={this.state.website}><img  
+        <div className='boxmodel'> 
+          <div style={{paddingBottom: '75px'}}>
+            <div> 
+              <a href={this.state.website}>
+                <img  
                 className='centre-logo'
-                  src={this.state.logo}
-                  alt={''}/>
+                src={this.state.logo}
+                alt={''}/>
               </a>
-            </div>
-          <ul style={{padding: '0'}}>    
+            </div>  
             <li style={ {listStyleType: 'none'} }> 
-              <div style= {{fontSize: 20, fontWeight: 'bold'}}>Route Setting Schedule:</div>    
-              <RenderSetting setting={this.state.setting}/>        
+              <div id='setting-head'>Setting Schedule</div>      
+              <BasicTable data={this.state.setting}/>         
             </li>
-            <div style={{paddingTop: '30px'}}>
-              <RenderInfo 
-                openingTimes={this.state.openingTime} 
-              />
-            </div>
+          </div> 
+          <div className={'div-style-1'}>
+          <RenderInfo 
+              openingTimes={this.state.openingTime} 
+            /> 
             <RenderMap 
-                latlng={this.state.latlng}
-                name={this.state.name}
-                address={this.state.address}
-                url={this.state.url}
-              />
-        </ul>
-       </div>
+              latlng={this.state.latlng}
+              name={this.state.name}
+              address={this.state.address}
+              url={this.state.url}
+            />
+          </div>
+        </div>
       )
     }
 }

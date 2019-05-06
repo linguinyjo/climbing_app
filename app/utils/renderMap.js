@@ -31,7 +31,7 @@ class RenderMap extends React.Component {
     render() {
       var style1= {fontSize: 20, fontWeight: 'bold', marginTop: '20px', marginBottom: '20px'}
         return (
-          <div className={'div-style-1'}>
+          <div>
             <div style={style1}>Address</div>
             <RenderAddress address={this.props.address} url={this.props.url}/>
             <div id='map'></div>

@@ -16,10 +16,10 @@ class MileEnd extends React.Component {
 				address: 'Haverfield Rd, Mile End, London E3 5BE',
 				logo: 'https://www.mileendwall.org.uk/images/static/sticker-logo.png',
 				setting: {},
-				settingTemplate: { mezz: [],  loft: [],  pen: [],  catacomb: [],  panels: [],  slab: [],  compwall: [] },
+				settingTemplate: { },
 				latlng: {lat: 51.5277485, lng: -0.039809},
 				url: 'https://www.google.com/maps/dir//Mile+End+Climbing+Wall,+Haverfield+Road,+London/@51.5278344,-0.1098484,12z/data=!3m1!4b1!4m9!4m8!1m0!1m5!1m1!1s0x48761d25cb1841f9:0x945fadaac2f92c47!2m2!1d-0.039809!2d51.5277485!3e2',
-				calendarId: 'sjos70i2irfuhfsrps6egjbcok'
+				calendarId: ''
 				
 			}
 	}
@@ -32,8 +32,9 @@ class MileEnd extends React.Component {
 		})
 	}
 	render() {
-			return (
-				<div className='boxmodel'> 
+		return (
+			<div className='boxmodel'> 
+				<div style={{paddingBottom: '75px'}}>
 					<div> 
 						<a href={this.state.website}>
 							<img  
@@ -41,25 +42,24 @@ class MileEnd extends React.Component {
 							src={this.state.logo}
 							alt={''}/>
 						</a>
-					</div>
-					<ul style={{padding: '0'}}>    
+					</div>  
 					<li style={ {listStyleType: 'none'} }> 
-						<div style= {{fontSize: 20, fontWeight: 'bold', paddingBottom: '20px'}}>Route Setting Schedule:</div>      
-						<BasicTable data={this.state.setting}/>
-          </li>
-					<div>
-					<RenderInfo 
+						<div id='setting-head'>Setting Schedule</div>      
+						<BasicTable data={this.state.setting}/>         
+					</li>
+				</div> 
+				<div className={'div-style-1'}>
+				<RenderInfo 
 						openingTimes={this.state.openingTime} 
-					/>
-					</div>    
+					/> 
 					<RenderMap 
 						latlng={this.state.latlng}
 						name={this.state.name}
 						address={this.state.address}
 						url={this.state.url}
 					/>
-				</ul>
-		</div>
+				</div>
+			</div>
 		)
 	}
 }

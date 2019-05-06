@@ -18,10 +18,10 @@ class RenderInfo extends React.Component {
   super();
 	}
 	render(){
-		var style1= {fontSize: 20, fontWeight: 'bold', marginTop: '20px', marginBottom: '20px'}
+		var style1= {fontSize: 20, fontWeight: 'bold', marginTop: '20px', marginBottom: '20px', }
 		return(
-			<div style={{paddingBottom: '30px'}}>
-				<div style={style1}>Opening Times:</div>
+			<div style={{paddingBottom: '30px', }}>
+				<div style={style1}>Opening Times</div>
           <RenderOpeningTimes openingTimes={this.props.openingTimes}/>            
 			</div>
 		)

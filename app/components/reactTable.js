@@ -2,12 +2,29 @@ import React from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import '../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 
-function priceFormatter(cell, row) {
-  let styleName
-  if(cell == 'loft')
-    styleName = 'whiteCircuit'
+function routeStyler(cell, row) {
+  let styleName;
+        switch(row['id']) {
+          case 'White V4-V6 Circuit':
+            styleName = 'whiteCircuit'
+              break;
+          case 'Black V6-V8+ Circuit':
+            styleName = 'blackCircuit'
+              break;
+          case 'Green V2-V4 Circuit':
+            styleName = 'greenCircuit'
+              break;         
+          case 'Purple V3-V5 Circuit':
+            styleName = 'purpleCircuit'
+              break;         
+          case 'Comp Wall':
+            styleName = 'compCircuit'
+              break; 
+          default:
+            styleName = undefined;
+        }
   return (
-    <div className={styleName}>{cell}</div>
+    <div className={styleName}>{row.id}</div>
   );
 }
 
@@ -27,18 +44,18 @@ export default class BasicTable extends React.Component {
     }
     return (
       <div className='setting-table'>
-        <table className='table'><BootstrapTable 
-          data={set.map((x) => {
-              return ((x.date != 'unknown') 
-                ? {id: x.id, date: moment(x.date).format("dddd Do of MMMM")} 
-                : {id: x.id, date: x.date})        
+        <BootstrapTable striped={ true } headerStyle={ { background: 'rgb(174, 209, 255)', fontWeight: 'bold',  } } tableStyle={ { background: 'rgb(228, 237, 248)' } }
+          data={set.map((data) => {
+            return ((data.date != 'unknown') 
+              ? {id: data.id, date: moment(data.date).format("dddd Do of MMMM")} 
+              : {id: data.id, date: data.date})        
           })
         }>
-          <TableHeaderColumn dataField='id' isKey={ true } dataFormat={priceFormatter}>Area/circuit</TableHeaderColumn>
+          <TableHeaderColumn dataField='id' isKey={ true } dataFormat={routeStyler}>Area/circuit</TableHeaderColumn>
           <TableHeaderColumn dataField='date'>Date of next reset</TableHeaderColumn>
         </BootstrapTable>
-        </table>
       </div>
+      
     );
   }
 }

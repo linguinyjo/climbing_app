@@ -13,7 +13,7 @@ class Castle extends React.Component {
           website: 'https://www.castle-climbing.co.uk/',
           address: 'Green Lanes, London N4 2HA',
           logo: 'https://storage.ning.com/topology/rest/1.0/file/get/68584701?profile=RESIZE_710x&width=184&height=184&crop=1%3A1',
-          settingTemplate: { mezz: [],  loft: [],  pen: [],  catacomb: [],  panels: [],  slab: [],  compwall: [] },
+          settingTemplate: { 'The Mezz': [],  'The Loft': [],  'The Pen': [],  'The Catacomb': [],  'The Panels': [],  'The Quarry': [],  'The Compwall': [] },
           setting: {},
           latlng: {lat: 51.5653078, lng: -0.0945371},
           url: 'https://www.google.com/maps/dir//The+Castle+Climbing+Centre,+Green+Lanes,+London+N4+2HA/@51.5653078,-0.0945371,17z/data=!4m16!1m6!3m5!1s0x48761c78f3bd2b2f:0x199c4e5bc2b69b44!2sThe+Castle+Climbing+Centre!8m2!3d51.5653078!4d-0.0923484!4m8!1m0!1m5!1m1!1s0x48761c78f3bd2b2f:0x199c4e5bc2b69b44!2m2!1d-0.0923484!2d51.5653078!3e2',
@@ -21,44 +21,44 @@ class Castle extends React.Component {
         }
     }
     componentDidMount(){
-      RenderEvents(this.state.calendarId, this.state.settingTemplate, (setting) => {
+      RenderEvents(this.state.calendarId, this.state.settingTemplate, this.createSetTitle, (setting) => {
         for(let array in setting) {
           setting[array].sort((a, b) => new Date(a['start']) - new Date(b['start']))
         }
         this.setState({setting})
       })
     }
+    createSetTitle = (str) => str.split(' ').join(' ')
+    
     render() {
-        return (
-          <div className='boxmodel'> 
-            <div > 
+      return (
+        <div className='boxmodel'> 
+          <div style={{paddingBottom: '75px'}}>
+            <div> 
               <a href={this.state.website}>
                 <img  
                 className='centre-logo'
                 src={this.state.logo}
                 alt={''}/>
               </a>
-            </div>
-            <ul style={{padding: '0'}}>    
+            </div>  
             <li style={ {listStyleType: 'none'} }> 
-              <div style= {{fontSize: 20, fontWeight: 'bold', paddingBottom: '20px'}}></div>      
-						  <BasicTable data={this.state.setting}/>         
+              <div id='setting-head'>Setting Schedule</div>      
+              <BasicTable data={this.state.setting}/>         
             </li>
-            <div style={{paddingTop: '30px'}}>
-              <RenderInfo 
-                openingTimes={this.state.openingTime} 
-              />
-            </div>
-            <div> 
-              <RenderMap 
-                latlng={this.state.latlng}
-                name={this.state.name}
-                address={this.state.address}
-                url={this.state.url}
-              />
-            </div>
-          </ul>
-      </div>
+          </div> 
+          <div className={'div-style-1'}>
+          <RenderInfo 
+              openingTimes={this.state.openingTime} 
+            /> 
+            <RenderMap 
+              latlng={this.state.latlng}
+              name={this.state.name}
+              address={this.state.address}
+              url={this.state.url}
+            />
+          </div>
+        </div>
       )
     }
 }
