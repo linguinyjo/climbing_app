@@ -54,34 +54,18 @@ class RenderCalendar extends React.Component {
     const nextState = Object.assign({}, this.state.display, { [name]: checked });
     if(type === 'checkbox'){
       this.setState(() => (
-        { display: nextState }), this.getData()) 
+        { display: nextState }), this.getData) 
     } 
   }
 
-  componentDidUpdate(prevProps, prevState){
-    // if(prevState.showCastle != this.state.showCastle || prevState.showStronghold != this.state.showStronghold) {
-    //   (this.state.showCastle === true) 
-    //   ? getEvents(this.state.castleId, 'castle', (events) => this.setState({ events }))
-    //   : this.setState({ events: [] })
-  
-    //   if(this.state.showStronghold === true){
-    //     getEvents(this.state.strongholdId, 'stronghold', (events) => {   
-    //       this.state.events ? this.setState({ events: [...this.state.events, ...events] }) : this.setState({ events }) 
-    //     })
-    //   }
-    //   else this.setState({ events: [] })
-    // }
-  }
-
   getData() {
-    this.setState({events: []})
-    Object.entries(this.state.display).forEach(([key, value]) => {
+    this.setState( {events: []}, Object.entries(this.state.display).forEach(([key, value]) => {
       if(value === true){
         getEvents(this.state[`${key}Id`], key, (events) => {         
           this.setState({ events: [...this.state.events, ...events] })       
         })  
       }   
-    })
+    }))
   }
 
   render() {
@@ -143,6 +127,15 @@ class RenderCalendar extends React.Component {
                 </div>
               </label>
             </div>
+            <div>
+              <label>
+                <div>
+                  <span className='key castle-key'></span>
+                  <span style={{paddingLeft: '10px'}}>Yonder</span>
+                  <input type="checkbox" name='yonder' checked={this.state.display['yonder']} onChange={this.handleChange} />
+                </div>
+              </label>
+            </div>
           </form>
         </div>
       </div>
@@ -150,3 +143,4 @@ class RenderCalendar extends React.Component {
   }
 }
 export default RenderCalendar
+

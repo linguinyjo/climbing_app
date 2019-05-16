@@ -51,13 +51,9 @@ class Castle extends React.Component {
               <div id='setting-head'>Setting Schedule</div>      
               <BasicTable data={this.state.setting}/>         
             </li>
-            
-            <TwitterTweetEmbed tweetId="1083592734038929408" />
-              
           </div> 
           <div className={'div-style-1'}>
-          
-          <RenderInfo 
+            <RenderInfo 
               openingTimes={this.state.openingTime} 
             /> 
             <RenderMap 
