@@ -79,6 +79,9 @@ class RenderCalendar extends React.Component {
       if(event.centre == 'stronghold') {
         backgroundColor = 'rgb(89, 156, 92)'
       }
+      if(event.centre == 'yonder') {
+        backgroundColor = 'rgb(228, 206, 135)'
+      }
       const style = {
           backgroundColor: backgroundColor,
           borderRadius: '0px',
@@ -130,7 +133,7 @@ class RenderCalendar extends React.Component {
             <div>
               <label>
                 <div>
-                  <span className='key castle-key'></span>
+                  <span className='key yonder-key'></span>
                   <span style={{paddingLeft: '10px'}}>Yonder</span>
                   <input type="checkbox" name='yonder' checked={this.state.display['yonder']} onChange={this.handleChange} />
                 </div>
