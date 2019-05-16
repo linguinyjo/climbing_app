@@ -57,6 +57,9 @@ class Stronghold extends React.Component {
           calendarId: 'kkbo6hvijn9gk8qicm0t14c88o'
         }
     } 
+
+    createSetTitle = (str) => str.split(' ')[0].toLowerCase()
+
     componentDidMount(){
       RenderEvents(this.state.calendarId, this.state.settingTemplate, this.createSetTitle, (setting) => {
         for(let array in setting) {
@@ -65,7 +68,6 @@ class Stronghold extends React.Component {
         this.setState({setting})
       })
     }
-    createSetTitle = (str) => str.split(' ')[0].toLowerCase()
 
     render () {
       return (
@@ -85,7 +87,7 @@ class Stronghold extends React.Component {
             </li>
           </div> 
           <div className={'div-style-1'}>
-          <RenderInfo 
+            <RenderInfo 
               openingTimes={this.state.openingTime} 
             /> 
             <RenderMap 

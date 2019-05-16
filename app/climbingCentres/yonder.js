@@ -14,20 +14,23 @@ class Yonder extends React.Component {
 				address: '4 - 6a Hookers Road London, E17 6DP United Kingdom',
 				logo: 'https://scontent-lht6-1.xx.fbcdn.net/v/t1.0-1/p720x720/22528168_1711580125582430_3942011432554940950_n.jpg?_nc_cat=100&_nc_ht=scontent-lht6-1.xx&oh=a3241391a3f5068d44a4f3643f21c81f&oe=5D068C17',
 				setting: {},
-				settingTemplate: { },
+				settingTemplate: { 'Top Out': [], 'CompWall': [], 'Cave': [], 'Mezz' : [] },
 				latlng: {lat: 51.5895819, lng: -0.0429609},
 				url: 'https://www.google.com/maps/dir//Yonder,+6+Hooker\'s+Rd,+Walthamstow,+London+E17+6DP/@51.5895819,-0.0429609,17z/data=!4m16!1m6!3m5!1s0x48761dd1f1379079:0x2ec27c30d6c7bc0e!2sYonder!8m2!3d51.5895819!4d-0.0407722!4m8!1m0!1m5!1m1!1s0x48761dd1f1379079:0x2ec27c30d6c7bc0e!2m2!1d-0.0407722!2d51.5895819!3e2',
-				calendarId: ''
+				calendarId: 'fgraascu8hglukn7a38s5aboec'
 			}
 	}
+	createSetTitle = (str) => str.split(' ').join(' ')
+
 	componentDidMount(){
-		RenderEvents(this.state.calendarId, this.state.settingTemplate, (setting) => {
+		RenderEvents(this.state.calendarId, this.state.settingTemplate, this.createSetTitle, (setting) => {
 			for(let array in setting) {
 				setting[array].sort((a, b) => new Date(a['start']) - new Date(b['start']))
 			}
 			this.setState({setting})
 		})
 	}
+
 	render() {
 		return (
 			<div className='boxmodel'> 

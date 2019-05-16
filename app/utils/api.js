@@ -14,13 +14,13 @@ export default function RenderEvents (id, setting, createSetTitle, callback) {
         if(event.status == 'cancelled') return;
         if(moment(today).isAfter(event.start.date)) return;
         let circuit = createSetTitle(event.summary)
-        
+        console.log(event)
         setting[circuit].push({
           start: event.start.date,
           end: event.end.date,
           title: event.summary,
         })          
-      })
+      }) 
     callback(setting)
     }
   })

@@ -3,6 +3,8 @@ import RenderMap from'../utils/renderMap'
 import RenderInfo from'../utils/renderInfo'
 import RenderEvents from'../utils/api'
 import BasicTable from '../components/reactTable'
+import { TwitterTimelineEmbed, TwitterShareButton, TwitterFollowButton, TwitterHashtagButton, TwitterMentionButton, TwitterTweetEmbed, TwitterMomentShare, TwitterDMButton, TwitterVideoEmbed, TwitterOnAirButton } from 'react-twitter-embed';
+
 
 class Castle extends React.Component {
     constructor() {
@@ -20,6 +22,9 @@ class Castle extends React.Component {
           calendarId: 'sjos70i2irfuhfsrps6egjbcok'
         }
     }
+    
+    createSetTitle = (str) => str.split(' ').join(' ')
+
     componentDidMount(){
       RenderEvents(this.state.calendarId, this.state.settingTemplate, this.createSetTitle, (setting) => {
         for(let array in setting) {
@@ -28,7 +33,7 @@ class Castle extends React.Component {
         this.setState({setting})
       })
     }
-    createSetTitle = (str) => str.split(' ').join(' ')
+    
     
     render() {
       return (
@@ -46,8 +51,12 @@ class Castle extends React.Component {
               <div id='setting-head'>Setting Schedule</div>      
               <BasicTable data={this.state.setting}/>         
             </li>
+            
+            <TwitterTweetEmbed tweetId="1083592734038929408" />
+              
           </div> 
           <div className={'div-style-1'}>
+          
           <RenderInfo 
               openingTimes={this.state.openingTime} 
             /> 
