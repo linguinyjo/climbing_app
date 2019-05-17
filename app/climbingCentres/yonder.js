@@ -3,6 +3,7 @@ import RenderMap from '../utils/renderMap'
 import RenderInfo from '../utils/renderInfo'
 import RenderEvents from'../utils/api'
 import BasicTable from '../components/reactTable'
+import TwitterFeed from'../utils/twitterFeed'
 
 class Yonder extends React.Component {
 	constructor() {
@@ -42,23 +43,30 @@ class Yonder extends React.Component {
 							src={this.state.logo}
 							alt={''}/>
 						</a>
-					</div>  
+					</div>
 					<li style={ {listStyleType: 'none'} }> 
-						<div id='setting-head'>Setting Schedule</div>      
+						<div id='setting-head'>
+							Setting Schedule
+						</div>      
 						<BasicTable data={this.state.setting}/>         
 					</li>
+				</div>
+				<div className={'div-style-1'}> 
+					<TwitterFeed />
 				</div> 
-				<div className={'div-style-1'}>
-				<RenderInfo 
+				<div style={{paddingTop: '50px', paddingBottom: '50px'}}>
+					<RenderInfo 
 						openingTimes={this.state.openingTime} 
-					/> 
+					/>
+				</div>
+				<div className={'div-style-1'}>
 					<RenderMap 
 						latlng={this.state.latlng}
 						name={this.state.name}
 						address={this.state.address}
 						url={this.state.url}
 					/>
-				</div>
+				</div> 
 			</div>
 		)
 	}

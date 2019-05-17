@@ -50,8 +50,9 @@ h2 {
     width: 60%;
     border: 2px solid black; 
     margin: auto;
-    background-color: rgb(221, 245, 255);
-    text-align: center; 
+    background-color: rgb(190, 227, 243);
+    text-align: center;
+    /* rgb(221, 245, 255);  */
 }
 .setting-table {
     width: 60%;
@@ -162,4 +163,15 @@ a {
     background: rgb(228, 206, 135);
   }
   
- 
+.socialHomeGroup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 30px
+}
+
+#socialHomeItem {
+    width: 75px;
+    height: 75px;
+    padding: 12px;
+}

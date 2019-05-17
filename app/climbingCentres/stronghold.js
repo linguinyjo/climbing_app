@@ -3,44 +3,9 @@ import RenderEvents from '../utils/api'
 import RenderMap from '../utils/renderMap'
 import RenderInfo from '../utils/renderInfo'
 import BasicTable from '../components/reactTable'
+import TwitterFeed from'../utils/twitterFeed'
 
-function RenderSetting(props){
-  return (
-    <ul>
-      {Object.values(props.setting).map((item) => {
-        let date = moment(item[0]['start']).format('dddd Do of MMMM')
-        let styleName;  
-        switch(item[0]['title']) {
-          case 'White V4-V6 Circuit':
-            styleName = 'whiteCircuit'
-              break;
-          case 'Black V6-V8+ Circuit':
-            styleName = 'blackCircuit'
-              break;
-          case 'Green V2-V4 Circuit':
-            styleName = 'greenCircuit'
-              break;         
-          case 'Purple V3-V5 Circuit':
-            styleName = 'purpleCircuit'
-              break;         
-          case 'Comp Wall':
-            styleName = 'compCircuit'
-              break; 
-          default:
-            styleName = undefined;
-        }
-        return (
-          <div key={item[0].title} style={{textAlign: 'center',  }}>
-            <li className={styleName} style={{margin: '20px', listStylePosition: 'inside', listStyleType: 'none'}}>
-              {`${item[0]['title']} is being reset on:  ${date}`} 
-            </li>
-          </div>
-        )
-        }) 
-      }
-    </ul> 
-  )
-}
+
 class Stronghold extends React.Component {
     constructor() {
         super();
@@ -80,23 +45,30 @@ class Stronghold extends React.Component {
                 src={this.state.logo}
                 alt={''}/>
               </a>
-            </div>  
+            </div>
             <li style={ {listStyleType: 'none'} }> 
-              <div id='setting-head'>Setting Schedule</div>      
+              <div id='setting-head'>
+                Setting Schedule
+              </div>      
               <BasicTable data={this.state.setting}/>         
             </li>
+          </div>
+          <div className={'div-style-1'}> 
+            <TwitterFeed />
           </div> 
-          <div className={'div-style-1'}>
+          <div style={{paddingTop: '50px', paddingBottom: '50px'}}>
             <RenderInfo 
               openingTimes={this.state.openingTime} 
-            /> 
+            />
+          </div>
+          <div className={'div-style-1'}>
             <RenderMap 
               latlng={this.state.latlng}
               name={this.state.name}
               address={this.state.address}
               url={this.state.url}
             />
-          </div>
+          </div> 
         </div>
       )
     }
