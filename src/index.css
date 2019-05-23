@@ -1,13 +1,196 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    background: white;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif;    
+}
+.containers {
+    max-width: 100px;
+    margin: auto;
+}
+.centres {
+    display: flex;
+    justify-content: center;
+}
+.centres li {
+    margin: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none
+}
+.avatar {
+    width: 150px;
+    border-radius: 50%;
+}
+.centre-logo {
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 40px
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+h2 {
+    margin: 20px;
+    text-align: center;
+}
+.popular-rank {
+    font-size: 20px;
+    margin: 10px;
+}
+#setting-head {
+    font-size: 2em; 
+    font-weight: bold;
+    padding-bottom: 20px;
+    
+}
+.boxmodel {
+    width: 60%;
+    border: 2px solid black; 
+    margin: auto;
+    background-color: rgb(190, 227, 243);
+    text-align: center;
+    /* rgb(221, 245, 255);  */
+}
+.setting-table {
+    width: 60%;
+    margin: auto;
+    background-color: rgb(229, 246, 252);
+}
+.my-custom-class {
+    text-align: center
+}
+.div-style-1 {
+    background-color: rgb(229, 246, 252);
+    border-top-style: ridge;
+    border-bottom-style: ridge;
+    border-width: 4px;
+    padding-top: 20px;
+    padding-bottom: 20px
+}
+.div-style-2 {
+    padding-bottom: '50px';
+    background: rgb(228, 237, 248)
+}
+#map {
+    height: 400px;
+    width: 450px;
+    margin: 0 auto 0 auto;
+    margin-top: 20px;
+    position: relative;    
+}
+/* Stronghold */
+.whiteCircuit {   
+    font-weight: bold;
+    color: white;
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;  
+}
+.blackCircuit {
+    font-weight: bold;   
+    color: rgb(0, 0, 0);
+    text-shadow:
+        0.3px -0.3px 0 rgb(63, 63, 63),
+        0.3px -0.3px 0 rgb(63, 63, 63),
+        0px 0px 0 rgb(63, 63, 63),
+        1px 1px 0 rgb(63, 63, 63);
+}
+.greenCircuit { 
+    font-weight: bold;  
+    color: rgb(1, 85, 1);
+    text-shadow:
+        0.3px -0.3px 0 rgb(0, 0, 0),
+        0.3px -0.3px 0 rgb(0, 0, 0),
+        0px 0px 0 rgb(0, 0, 0),
+        1px 1px 0 rgb(0, 0, 0);  
+}
+.purpleCircuit {   
+    font-weight: bold;
+    color: purple;
+    text-shadow:
+        0.3px -0.3px 0 rgb(0, 0, 0),
+        0.3px -0.3px 0 rgb(0, 0, 0),
+        0px 0px 0 rgb(0, 0, 0),
+        1px 1px 0 rgb(0, 0, 0);   
+}
+.compCircuit {   
+    font-weight: bold;
+    color: rgb(190, 190, 43);
+    text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+
+.openingTimes {
+    margin: auto;
+    font-style: italic;
+    list-style: none;
+    padding-inline-end: 25px        
+}
+
+.address {
+    margin: auto;
+    font-style: italic; 
+}
+.nav {
+    display: flex;
+    background-color: beige;
+    border-style: outset;
+    border-color: beige
+}
+.nav li {
+    padding: 10px;
+    list-style: none;
+}
+.active {
+    font-weight: bold
+}
+a {
+    color: rgb(2, 2, 61);
+    text-decoration: none
+}
+.Big-Calendar {
+    height: 750px;
+    margin: auto;
+    width: 75%
+}
+.div-key {
+    margin: auto;
+    width: 50%;
+    text-align: center
+}
+.key {
+    width: 20px;
+    height: 20px;
+    margin-top: 15px;
+    border: 1px solid rgba(0, 0, 0, .2);
+    vertical-align: sub;
+    display: inline-block;
+  }
+  .castle-key {
+    background: rgb(51, 159, 179);
+  }
+  
+  .stronghold-key {
+    background: rgb(89, 156, 92);
+  }
+
+  .yonder-key {
+    background: rgb(228, 206, 135);
+  }
+  
+.socialHomeGroup {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 30px
+}
+
+#socialHomeItem {
+    width: 75px;
+    height: 75px;
+    padding: 12px;
 }

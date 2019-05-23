@@ -1,38 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+<html>
+<head>
+  <title>Climbr</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+  <script>
+  // Initialize twitter api
+    var twitterConfig = {
+      consumerKey: 'fEctMMrb8CJFUo0t1DglgbUe8',
+      consumerSecret: 'ISjlUwA8RKr2hix8wrxg6P6U60y2IM0yLj4qMH6BAQVP4W0ad3',
+      accessToken: '1128975842531581952-CHJD3Jy391KhgGKBDNN34oAoJDiXWc',
+      accessTokenSecret: 'vHqMAZfuXGrZvmmZe4SCKL22mnqdE5qdMy8f01C4XWuVv'
+    }
+  </script>
+  <script>
+  // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyA8NFaUebGYpFLH2N1Yyvjvin-VgnehL_4",
+      authDomain: "climbing-app-236509.firebaseapp.com",
+      databaseURL: "https://climbing-app-236509.firebaseio.com",
+      projectId: "climbing-app-236509",
+      storageBucket: "climbing-app-236509.appspot.com",
+      messagingSenderId: "90157338768",
+      calendar: 'AIzaSyBzcWtddE-50ySpsXkD52vMHvi2j6q_pHI',
+      map: 'AIzaSyAx9Aq6efr8idpTbU9OnYYjnx-hFM22lbw',
+    };
+    firebase.initializeApp(config);
+ </script>
+  <script src="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table-all.min.css">
+    <link rel="text/html" href="'../node_modules/react-bootstrap-table/dist/react-bootstrap-table.min.css'">   
+  </link>
+  <script async defer src="https://apis.google.com/js/api.js"
+    onload="this.onload=function(){};handleClientLoad()"
+    onreadystatechange="if (this.readyState === 'complete') this.onload()">
+  </script>
+  
+</body>
 </html>
+
+
+<!-- <script type='text/javascript' src='config.js'></script> -->
+<!-- <script type='text/javascript' src='twitterConfig.js'></script> -->
