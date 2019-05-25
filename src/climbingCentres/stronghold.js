@@ -5,8 +5,6 @@ import RenderInfo from '../utils/renderInfo'
 import BasicTable from '../components/reactTable'
 import TwitterFeed from'../utils/twitterFeed'
 
-
-
 class Stronghold extends React.Component {
     constructor() {
         super();

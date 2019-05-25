@@ -1,10 +1,9 @@
 import React from 'react'
 import { TwitterTweetEmbed } from 'react-twitter-embed'
-import GetLatestTweet from'../utils/twitterAPI'
-
+import GetLatestTweet from'./twitterAPI'
 
 class TwitterFeed extends React.Component {
-  constructor(props){
+  constructor(){
     super()
     this.state = {
       tweetId: ''
@@ -12,7 +11,7 @@ class TwitterFeed extends React.Component {
   }
   componentDidMount(){
     GetLatestTweet(this.props.twitterId, this.state.tweetId, (tweetId) => {
-      this.setState({tweetId})
+        this.setState({tweetId})
     }) 
   }
 
