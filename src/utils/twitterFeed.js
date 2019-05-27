@@ -1,26 +1,41 @@
 import React from 'react'
 import { TwitterTweetEmbed } from 'react-twitter-embed'
-import GetLatestTweet from'../utils/twitterAPI'
-
+import GetLatestTweet from'./twitterAPI'
+import { css } from '@emotion/core';
+import { ClipLoader, RingLoader } from 'react-spinners';
 
 class TwitterFeed extends React.Component {
-  constructor(props){
+  constructor(){
     super()
     this.state = {
-      tweetId: ''
+      tweetId: '',
+      loading: true
     }
   }
   componentDidMount(){
     GetLatestTweet(this.props.twitterId, this.state.tweetId, (tweetId) => {
-      this.setState({tweetId})
+        this.setState({tweetId: tweetId, loading: false})
     }) 
   }
 
   render(){
+    const override = css`
+      display: block;
+      margin: 0 auto;
+      border-color: red;
+      `;
     return (
       <div>
         <div className='setting-table' >
-          {this.state.tweetId && <TwitterTweetEmbed tweetId={this.state.tweetId} />}
+          {this.state.loading === true ? 
+            <RingLoader
+              css={override}
+              sizeUnit={"px"}
+              size={150}
+              color={'#123abc'}
+              loading={this.state.loading}
+            /> :
+            this.state.tweetId && <TwitterTweetEmbed tweetId={this.state.tweetId} />}
         </div>
         <div className='socialHomeGroup'>
           <div>

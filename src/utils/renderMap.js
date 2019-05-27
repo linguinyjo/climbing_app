@@ -1,6 +1,5 @@
 import React from 'react'
-const google = window.google
-
+const config = require('../config.js')
 
 function RenderAddress(props){
 	return (
@@ -8,12 +7,11 @@ function RenderAddress(props){
 	)
 }
 class RenderMap extends React.Component {
-    
   componentDidMount() {
     this.renderMap()
   }
   renderMap = () => {
-    loadScript(`https://maps.googleapis.com/maps/api/js?key=${window.config.map}&callback=initMap`)
+    loadScript(`https://maps.googleapis.com/maps/api/js?key=${config.map}&callback=initMap`)
     window.initMap = this.initMap
   }
   initMap = () => {

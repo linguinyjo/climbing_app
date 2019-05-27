@@ -25,3 +25,7 @@ yarn-error.log*
 config.js
 /functions/node_modules
 /functions/twitterConfig.js
+./node_modules
+.firebase
+.firebaserc
+firebase.json

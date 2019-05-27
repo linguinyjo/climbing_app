@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.0",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-big-calendar": "^0.21.0",
@@ -11,13 +14,20 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "react-twitter-embed": "^2.0.8",
-    "superagent": "^5.0.5"
+    "request": "^2.88.0",
+    "superagent": "^5.0.5",
+    "twit": "^2.2.11",
+    "twitter": "^1.7.1",
+    "twitter-js-client": "0.0.5",
+    "twitter-node-client": "0.0.6"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "firebase-init": "firebase login && firebase init",
+    "deploy": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app"

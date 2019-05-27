@@ -3,9 +3,10 @@ import moment from 'moment'
 import BigCalendar from 'react-big-calendar'
 import request from 'superagent'
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+const config = require('../config.js')
 
 const localizer = BigCalendar.momentLocalizer(moment) 
-const API_KEY = window.config.calendar
+const API_KEY = config.calendar
 
 function getEvents (id, centre, callback) {
   const CALENDAR_ID = id + '@group.calendar.google.com' 
@@ -94,7 +95,6 @@ class RenderCalendar extends React.Component {
         style: style
       }
     }
-    
     return (
       <div>
         <div className="Big-Calendar">
