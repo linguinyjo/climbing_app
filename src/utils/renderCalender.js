@@ -105,7 +105,7 @@ class RenderCalendar extends React.Component {
             showMultiDayTimes
             step={60}
             showMultiDayTimes
-            defaultDate={new Date('05/02/2019')}
+            defaultDate={new Date()}
             localizer={localizer}
             eventPropGetter={eventStyleGetter}
           /> 

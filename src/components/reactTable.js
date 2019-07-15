@@ -48,7 +48,7 @@ export default class BasicTable extends React.Component {
         <BootstrapTable striped={ true } headerStyle={ { background: 'rgb(174, 209, 255)', fontWeight: 'bold',  } } tableStyle={ { background: 'rgb(228, 237, 248)' } }
           data={set.map((data) => {
             return ((data.date !== 'unknown') 
-              ? {id: data.id, date: moment(data.date).format("dddd Do of MMMM")} 
+              ? {id: data.id, date: moment(data.date).format("ddd Do of MMM")} 
               : {id: data.id, date: data.date})        
           })}
         >
