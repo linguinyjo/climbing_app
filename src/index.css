@@ -159,7 +159,8 @@ a {
 .div-key {
     margin: auto;
     width: 50%;
-    text-align: center
+    text-align: center;
+    margin-top: 40px
 }
 .key {
     width: 20px;
