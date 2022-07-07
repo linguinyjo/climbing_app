@@ -7,7 +7,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.0",
     "lodash": ">=4.17.13",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "react": "^16.8.6",
     "react-big-calendar": "^0.21.0",
     "react-bootstrap-table": "^4.3.1",
